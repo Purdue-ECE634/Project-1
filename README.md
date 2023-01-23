@@ -1,31 +1,54 @@
-# Project_0: Getting Started
-The purpose of this exercise is to get you familiar with tools and basic knowledge for working with video files. After completing this exercise, you should create basic software for processing videos and visual debugging your code.
+# Project-1: Block Matching Algorithm
+In this project, we will implement three Block Marching Algorithms (BMA). The third method is particularly important as it will compute faster than the first two methods. 
 
-NOTE: Submit your program source code on GitHub Classroom. However, you DO NOT need to submit a report for this project on Gradescope.
+NOTE: Submit your program source code on GitHub Classroom, and a project report on Gradescope.
 
-## Part I - Setting up the environment.
-- You will use Python, or C/C++ for this exercise.
-- Download and install OpenCV with ffmpeg capabilities on your computer. Recommend version 3.0+. There are many online resources for installing the required packages depending on your OS.
+## Part I - Write a C/C++ or Python program for implementing an exhaustive block matching algorithm (EBMA) with *integer-pel accuracy*
+- Program inputs: video sequence, block size, search range
+- Program outputs: estimated motion field
+- Assignment deliverables:
+  - Program source code
+  - Project report describing your findings. It must include the following items:
+    1. Plot of estimated motion field for two images from video sequence 
+    2. The predicted image and the prediction error image
+    3. The PSNR of the predicted frame relative to its original
+   - Experiments such as:
+      1. Impact of different search range
+      2. Impact of different predicted-block size ($16 \times 16$ as starting point)
 
-## Part II - Processing video files and visual debugging.
-- Write a program that reads video in one of 3 formats, and displays it at one of 3 speeds: as fast as possible, 30 fps, and one frame at a time. For your program to be a  exible start to future assignments, it should not have hard-wired input but instead take inputs from the command line. Required formats:
-  - YUV format, one byte per pixel.
-  -  A compressed video file like *.mp4.
-  - A series of JPEG images with names ''file\%4d.jpg", where the ''\%4d" means a 4-digit integer (or bigger) to denote frame number, like tennis0010.jpg is the 11-th image (because time starts at 0).
+Use the YUV videos provided at [HERE](https://engineering.purdue.edu/~zhu0/ece634/sample_video.zip). Since block size is small, motion compensation can be slow to process. Choose two frames that have sufficient motion between them so that it's easy to observe the effect of inaccurate motion estimation. If necessary, choose frame that have several intervening frames.   
+  
+## Part II - Write a C/C++ or Python program for implementing an exhaustive block matching algorithm (EBMA) with *half-pel accuracy*
+- Program inputs: video sequence, block size, search range
+- Program outputs: estimated motion field
+- Assignment deliverables:
+  - Program source code
+  - Project report describing your findings. It must include the following items:
+    1. Plot of estimated motion field for two images from video sequence 
+    2. The predicted image and the prediction error image
+    3. The PSNR of the predicted frame relative to its original
+    4. Compare the predicted image and its PSNR with results from integer-pel accuracy
+    5. Compare execution time relative to results from integer-pel accuracy
+   - Experiments such as:
+      1. Impact of different search range
+      2. Impact of different predicted-block size ($16 \times 16$ as starting point)
+      
+## Part III - Write a C/C++ or Python program for implementing *hierarchical block matching algorithm (HBMA}*
+- Program inputs: video sequence, block size, search range
+- Program outputs: estimated motion field
+- Assignment deliverables:
+  - Program source code
+  - Project report describing your findings. It must include the following items:
+    1. Plot of estimated motion field for two images from video sequence 
+    2. The predicted image and the prediction error image
+    3. The PSNR of the predicted frame relative to its original
+    4. Compare the predicted image and the PSNR of the predicted image with results from integer-pel and half-pel accuracy
+    5. Compare execution time relative to results from integer- and half-pel accuracy
+   - Experiments such as:
+      1. Impact of different search range
+      2. Impact of different predicted-block size ($16 \times 16$ as starting point)
 
-- Write a program that reads video in one of 3 formats, and saves it in the other two formats. For your program to be a flexible start to future assignments, it should not have hard-wired input but instead take inputs from the command line.
-Required formats:
-  - YUV format, one byte per pixel.
-  -  A compressed video file like *.mp4.
-  - A series of JPEG images with names ''file\%4d.jpg", where the ''\%4d" means a 4-digit integer (or bigger) to denote frame number, like tennis0010.jpg is the 11-th image (because time starts at 0).
+## Bonus Problem (20 points in addition to the 100 points of the project)
+Assuming the motion between two frames can be approximated by an affine mapping. Determine the affine parameters using the indirect method. First, apply the HBMA or EBMA algorithm you implemented, to determine a block-based motion field between the two frames. Then determine the affine parameters using the least-squares method of Equation (6.7.3) in the textbook (Wang etc., *Video Processing and Communications*). Show the predicted image based on the affine parameters and the associated prediction error (in terms of PSNR) (as above). Compare the results to those obtained with the starting block-based motion estimation.
 
-- Augment your program to compute and display the frame difference image, which is the difference between two adjacent frames.
-
-- Augment your program to respond to keyboard and mouse commands. You should include the following set of operations:
-  - Stop/Start (when the space bar is pressed).
-  - Step One Frame (when the "." period key is pressed).
-  - Print (x,y) (when the left mouse is pressed).
-  - Print (R,G,B) when the right mouse is pressed).
-You may use online tutorials and sample codes to get you started, but be sure to give credit where credit is due.
-
-- Sample video files in .yuv, .mp4, .jpg formats can be found on [HERE](https://engineering.purdue.edu/~zhu0/ece634/sample_video.zip).
+Compare the results when applied to 2 frames experiencing primarily camera motion, as well as to 2 frames experiencing no camera motion. Discuss the results. Note that for debugging purposes, it may be useful to artificially generate a pair of frames, where the second is generated by applying an affine mapping to the first.
