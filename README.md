@@ -1,4 +1,4 @@
-# Project-1: Block Matching Algorithm
+# Project 1: Block Matching Algorithm
 In this project, we will implement three Block Marching Algorithms (BMA). The third method is particularly important as it will compute faster than the first two methods. 
 
 NOTE: Submit your program source code on GitHub Classroom, and a project report on Gradescope.
@@ -12,9 +12,9 @@ NOTE: Submit your program source code on GitHub Classroom, and a project report 
     1. Plot of estimated motion field for two images from video sequence 
     2. The predicted image and the prediction error image
     3. The PSNR of the predicted frame relative to its original
-   - Experiments such as:
-      1. Impact of different search range
-      2. Impact of different predicted-block size ($16 \times 16$ as starting point)
+  - Experiments such as:
+    1. Impact of different search range
+    2. Impact of different predicted-block size ($16 \times 16$ as starting point)
 
 Use the YUV videos provided at [HERE](https://engineering.purdue.edu/~zhu0/ece634/sample_video.zip). Since block size is small, motion compensation can be slow to process. Choose two frames that have sufficient motion between them so that it's easy to observe the effect of inaccurate motion estimation. If necessary, choose frame that have several intervening frames.   
   
@@ -29,9 +29,9 @@ Use the YUV videos provided at [HERE](https://engineering.purdue.edu/~zhu0/ece63
     3. The PSNR of the predicted frame relative to its original
     4. Compare the predicted image and its PSNR with results from integer-pel accuracy
     5. Compare execution time relative to results from integer-pel accuracy
-   - Experiments such as:
-      1. Impact of different search range
-      2. Impact of different predicted-block size ($16 \times 16$ as starting point)
+  - Experiments such as:
+    1. Impact of different search range
+    2. Impact of different predicted-block size ($16 \times 16$ as starting point)
       
 ## Part III - Write a C/C++ or Python program for implementing *hierarchical block matching algorithm (HBMA}*
 - Program inputs: video sequence, block size, search range
@@ -44,9 +44,9 @@ Use the YUV videos provided at [HERE](https://engineering.purdue.edu/~zhu0/ece63
     3. The PSNR of the predicted frame relative to its original
     4. Compare the predicted image and the PSNR of the predicted image with results from integer-pel and half-pel accuracy
     5. Compare execution time relative to results from integer- and half-pel accuracy
-   - Experiments such as:
-      1. Impact of different search range
-      2. Impact of different predicted-block size ($16 \times 16$ as starting point)
+  - Experiments such as:
+    1. Impact of different search range
+    2. Impact of different predicted-block size ($16 \times 16$ as starting point)
 
 ## Bonus Problem (20 points in addition to the 100 points of the project)
 Assuming the motion between two frames can be approximated by an affine mapping. Determine the affine parameters using the indirect method. First, apply the HBMA or EBMA algorithm you implemented, to determine a block-based motion field between the two frames. Then determine the affine parameters using the least-squares method of Equation (6.7.3) in the textbook (Wang etc., *Video Processing and Communications*). Show the predicted image based on the affine parameters and the associated prediction error (in terms of PSNR) (as above). Compare the results to those obtained with the starting block-based motion estimation.
