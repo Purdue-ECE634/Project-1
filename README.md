@@ -12,7 +12,7 @@ NOTE: Submit your program source code on GitHub Classroom, and a project report 
     1. Plot of estimated motion field for two images from video sequence 
     2. The predicted image and the prediction error image
     3. The PSNR of the predicted frame relative to its original
-- Experiments:
+- Experiments such as:
     1. Impact of different search range
     2. Impact of different predicted-block size ($16 \times 16$ as starting point)
 
@@ -29,7 +29,7 @@ Use the YUV videos provided at [HERE](https://engineering.purdue.edu/~zhu0/ece63
     3. The PSNR of the predicted frame relative to its original
     4. Compare the predicted image and its PSNR with results from integer-pel accuracy
     5. Compare execution time relative to results from integer-pel accuracy
-- Experiments:
+- Experiments such as:
     1. Impact of different search range
     2. Impact of different predicted-block size ($16 \times 16$ as starting point)
       
@@ -44,7 +44,7 @@ Use the YUV videos provided at [HERE](https://engineering.purdue.edu/~zhu0/ece63
     3. The PSNR of the predicted frame relative to its original
     4. Compare the predicted image and the PSNR of the predicted image with results from integer-pel and half-pel accuracy
     5. Compare execution time relative to results from integer- and half-pel accuracy
-- Experiments:
+- Experiments such as:
     1. Impact of different search range
     2. Impact of different predicted-block size ($16 \times 16$ as starting point)
 
